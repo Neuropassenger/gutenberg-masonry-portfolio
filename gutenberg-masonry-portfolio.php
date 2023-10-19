@@ -36,20 +36,20 @@ class Gutenberg_Masonry_Porfolio {
 		register_taxonomy( 'bws_portoflio_cat', 'portfolio', array(
 			'show_in_rest'	=> true,
 			'labels'		=> array(
-				'name'							=> 'Portfolio Tags',
-				'singular_name'					=> 'Portfolio Tag',
-				'search_items'					=> 'Search Portfolio Tags',
-				'popular_items' 				=> 'Popular Portfolio Tags',
-				'all_items'						=> 'All Portfolio Tags',
-				'edit_item'						=> 'Edit Portfolio Tag',
-				'update_item'					=> 'Update Portfolio Tag',
-				'add_new_item'					=> 'Add New Portfolio Tag',
-				'view_item'						=> 'View Portfolio Tag',
-				'separate_items_with_commas'	=> 'Separate Portfolio Tags with commas',
-				'add_or_remove_items'			=> 'Add or Remove Portfolio Tags',
-				'choose_from_most_used'			=> 'Choose from the most used Portfolio Tags',
-				'not_found'						=> 'Portfolio Tags not found',
-				'back_to_items'					=> 'Go to Portfolio Tags'
+				'name'							=> __( 'Portfolio Tags', 'gutenberg-masonry-portfolio' ),
+				'singular_name'					=> __( 'Portfolio Tag', 'gutenberg-masonry-portfolio' ),
+				'search_items'					=> __( 'Search Portfolio Tags', 'gutenberg-masonry-portfolio' ),
+				'popular_items' 				=> __( 'Popular Portfolio Tags', 'gutenberg-masonry-portfolio' ),
+				'all_items'						=> __( 'All Portfolio Tags', 'gutenberg-masonry-portfolio' ),
+				'edit_item'						=> __( 'Edit Portfolio Tag', 'gutenberg-masonry-portfolio' ),
+				'update_item'					=> __( 'Update Portfolio Tag', 'gutenberg-masonry-portfolio' ),
+				'add_new_item'					=> __( 'Add New Portfolio Tag', 'gutenberg-masonry-portfolio' ),
+				'view_item'						=> __( 'View Portfolio Tag', 'gutenberg-masonry-portfolio' ),
+				'separate_items_with_commas'	=> __( 'Separate Portfolio Tags with commas', 'gutenberg-masonry-portfolio' ),
+				'add_or_remove_items'			=> __( 'Add or Remove Portfolio Tags', 'gutenberg-masonry-portfolio' ),
+				'choose_from_most_used'			=> __( 'Choose from the most used Portfolio Tags', 'gutenberg-masonry-portfolio' ),
+				'not_found'						=> __( 'Portfolio Tags not found', 'gutenberg-masonry-portfolio' ),
+				'back_to_items'					=> __( 'Go to Portfolio Tags', 'gutenberg-masonry-portfolio' ),
 			)
 		) );
 	}
@@ -65,42 +65,42 @@ class Gutenberg_Masonry_Porfolio {
 			'supports' 			=> array( 'title', 'editor', 'thumbnail' ),
 			'menu_postition'	=> 4,
 			'labels'			=> array(
-				'name'                     => 'Portfolio Items', // The main name for a post type, usually in the plural.
-				'singular_name'            => 'Portfolio Item', // The name for one post of that type.
-				'add_new'                  => 'Add New', // Text for adding a new post, like "add new" in posts in the admin panel.
+				'name'                     => __( 'Portfolio Items', 'gutenberg-masonry-portfolio' ), // The main name for a post type, usually in the plural.
+				'singular_name'            => __( 'Portfolio Item', 'gutenberg-masonry-portfolio' ), // The name for one post of that type.
+				'add_new'                  => __( 'Add New', 'gutenberg-masonry-portfolio' ), // Text for adding a new post, like "add new" in posts in the admin panel.
 												// If you want to use a translation of the title, type it like this: _x('Add New', 'product');
-				'add_new_item'             => 'Add New Portfolio Item', // Title text of the newly created post in the admin panel. As "Add New Post" for posts.
-				'edit_item'                => 'Edit Portfolio Item', // The text to edit the post type. Default: edit post/edit page.
-				'new_item'                 => 'New Portfolio Item', // New post text. Default: "New post."
-				'view_item'                => 'View Portfolio Item', // Text to view a post of this post type. Default: "View post"/"View page".
-				'search_items'             => 'Search Portfolio Item', // Search text for these post types. Default: "Find post"/"find page".
-				'not_found'                => 'No Portfolio Items was found', // Text if the search did not find anything.
+				'add_new_item'             => __( 'Add New Portfolio Item', 'gutenberg-masonry-portfolio' ), // Title text of the newly created post in the admin panel. As "Add New Post" for posts.
+				'edit_item'                => __( 'Edit Portfolio Item', 'gutenberg-masonry-portfolio' ), // The text to edit the post type. Default: edit post/edit page.
+				'new_item'                 => __( 'New Portfolio Item', 'gutenberg-masonry-portfolio' ), // New post text. Default: "New post."
+				'view_item'                => __( 'View Portfolio Item', 'gutenberg-masonry-portfolio' ), // Text to view a post of this post type. Default: "View post"/"View page".
+				'search_items'             => __( 'Search Portfolio Item', 'gutenberg-masonry-portfolio' ), // Search text for these post types. Default: "Find post"/"find page".
+				'not_found'                => __( 'No Portfolio Items was found', 'gutenberg-masonry-portfolio' ), // Text if the search did not find anything.
 												// Default: "No post was found"/"No page was found".
-				'not_found_in_trash'       => 'No Portfolio Items was found in Trash', // Text if nothing was found in the trash.
+				'not_found_in_trash'       => __( 'No Portfolio Items was found in Trash', 'gutenberg-masonry-portfolio' ), // Text if nothing was found in the trash.
 												// Default is: "No posts found in Trash"/"No pages found in Trash".
-				'all_items'                => 'All Portfolio Items', // All posts. The default is "All Posts"/"All Pages".
+				'all_items'                => __( 'All Portfolio Items', 'gutenberg-masonry-portfolio' ), // All posts. The default is "All Posts"/"All Pages".
 				//'archives'                 => '', // Posts Archives. Defaults to value of all_items field.
-				'insert_into_item'         => 'Insert in Portfolio Item', // Insert in post.
-				'uploaded_to_this_item'    => 'Loaded for this Portfolio Item', // Loaded for this post.
-				'featured_image'           => 'Portfolio Items thumbnail', // Posts thumbnail.
-				'set_featured_image'       => 'Set Portfolio Item thumbnail', // Set post thumbnail.
-				'remove_featured_image'    => 'Delete Portfolio Item thumbnail', // Delete post thumbnail.
-				'use_featured_image'       => 'Use Portfolio Item thumbnail', // Use as post thumbnail.
-				'filter_items_list'        => 'Filter Portfolio Item list', // Filter post list.
-				'items_list_navigation'    => 'Naigate though Porfolio Items', // Navigate through postings.
-				'items_list'               => 'List of Portfolio Items', // List of posts.
-				'view_items'               => 'View Portfolio Items', // Name in toolbar, for archive page of post type. Default: "View Posts" / "View Pages". FROM WP 4.7.
-				'attributes'               => 'Portfolio Item attributes', // Name for post attributes metabox (for pages it is "Page Attributes" metabox).
+				'insert_into_item'         => __( 'Insert in Portfolio Item', 'gutenberg-masonry-portfolio' ), // Insert in post.
+				'uploaded_to_this_item'    => __( 'Loaded for this Portfolio Item', 'gutenberg-masonry-portfolio' ), // Loaded for this post.
+				'featured_image'           => __( 'Portfolio Items thumbnail', 'gutenberg-masonry-portfolio' ), // Posts thumbnail.
+				'set_featured_image'       => __( 'Set Portfolio Item thumbnail', 'gutenberg-masonry-portfolio' ), // Set post thumbnail.
+				'remove_featured_image'    => __( 'Delete Portfolio Item thumbnail', 'gutenberg-masonry-portfolio' ), // Delete post thumbnail.
+				'use_featured_image'       => __( 'Use Portfolio Item thumbnail', 'gutenberg-masonry-portfolio' ), // Use as post thumbnail.
+				'filter_items_list'        => __( 'Filter Portfolio Item list', 'gutenberg-masonry-portfolio' ), // Filter post list.
+				'items_list_navigation'    => __( 'Naigate though Porfolio Items', 'gutenberg-masonry-portfolio' ), // Navigate through postings.
+				'items_list'               => __( 'List of Portfolio Items', 'gutenberg-masonry-portfolio' ), // List of posts.
+				'view_items'               => __( 'View Portfolio Items', 'gutenberg-masonry-portfolio' ), // Name in toolbar, for archive page of post type. Default: "View Posts" / "View Pages". FROM WP 4.7.
+				'attributes'               => __( 'Portfolio Item attributes', 'gutenberg-masonry-portfolio' ), // Name for post attributes metabox (for pages it is "Page Attributes" metabox).
 												// Default: "Post Attributes" or "Page Attributes". FROM WP 4.7.
-				'item_updated'             => 'Portfolio Item updated', // Note text in the post editor when the post is updated. FROM WP 5.0.
+				'item_updated'             => __( 'Portfolio Item updated', 'gutenberg-masonry-portfolio' ), // Note text in the post editor when the post is updated. FROM WP 5.0.
 												// Default: "Post updated." / "Page updated."
-				'item_published'           => 'Portfolio Item published', // Note text in post editor when a post is published. FROM WP 5.0.
+				'item_published'           => __( 'Portfolio Item published', 'gutenberg-masonry-portfolio' ), // Note text in post editor when a post is published. FROM WP 5.0.
 												// Default: "Post published." / "Page published."
-				'item_published_privately' => 'Portfolio Item published privately', // Note text in post editor when private post is published. FROM WP 5.0.
+				'item_published_privately' => __( 'Portfolio Item published privately', 'gutenberg-masonry-portfolio' ), // Note text in post editor when private post is published. FROM WP 5.0.
 												// Default: "Post published privately." / "Page published privately."
-				'item_reverted_to_draft'   => 'Portfolio Item reverted to draft', // The text of a note in the post editor when the post is returned to draft. FROM WP 5.0.
+				'item_reverted_to_draft'   => __( 'Portfolio Item reverted to draft', 'gutenberg-masonry-portfolio' ), // The text of a note in the post editor when the post is returned to draft. FROM WP 5.0.
 												// Default: "Post reverted to draft." / "Page reverted to draft."
-				'item_scheduled'           => 'Portfolio Item scheduled', // Note text in the post editor when a post is scheduled for a future date. FROM WP 5.0.
+				'item_scheduled'           => __( 'Portfolio Item scheduled', 'gutenberg-masonry-portfolio' ), // Note text in the post editor when a post is scheduled for a future date. FROM WP 5.0.
 												// Default: "Post scheduled." / "Page scheduled."
 			)
 		) );
