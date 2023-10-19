@@ -25,7 +25,6 @@ console.log(
 	'Hello World! (from create-block-gutenberg-masonry-portfolio block)'
 );
 /* eslint-enable no-console */
-import {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom';
 import MasonryPortfolio from './components/MasonryPortfolio';
 
