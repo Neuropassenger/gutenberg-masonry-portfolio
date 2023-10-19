@@ -25,3 +25,13 @@ console.log(
 	'Hello World! (from create-block-gutenberg-masonry-portfolio block)'
 );
 /* eslint-enable no-console */
+import {useEffect, useState} from 'react';
+import ReactDOM from 'react-dom';
+import MasonryPortfolio from './components/MasonryPortfolio';
+
+const rootElement = document.getElementById('bws_gutenberg-masonry-portfolio');
+const blockAttributes = JSON.parse(rootElement.querySelector("pre").innerHTML);
+ReactDOM.render(
+	<MasonryPortfolio attributes={blockAttributes} />,
+	document.getElementById('bws_gutenberg-masonry-portfolio')
+);
