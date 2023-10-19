@@ -5,8 +5,20 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-gutenberg-masonry-portfolio {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
-}
+ .bws_gutenberg-masonry-portfolio-grid {
+	display: -webkit-box; /* Not needed if autoprefixing */
+	display: -ms-flexbox; /* Not needed if autoprefixing */
+	display: flex;
+	margin-left: -30px; /* gutter size offset */
+	width: auto;
+  }
+  .bws_gutenberg-masonry-portfolio-grid-column {
+	padding-left: 30px; /* gutter size */
+	background-clip: padding-box;
+  }
+  
+  /* Style your items */
+  .bws_gutenberg-masonry-portfolio-grid-column > div { /* change div to reference your elements you put in <Masonry> */
+	background: grey;
+	margin-bottom: 30px;
+  }
