@@ -4,6 +4,20 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-gutenberg-masonry-portfolio {
-	border: 1px dotted #f00;
-}
+ .editor-styles-wrapper {
+	ul.bws_gutenberg-masonry-portfolio-filter {
+		list-style: none;
+	}
+
+	div.bws_masonry-post {
+		h2 {
+			color: #fff;
+			margin: 0;
+			line-height: initial;
+		}
+	}
+ } 
+
+ div.bws_gutenberg-masonry-portfolio-grid {
+	padding: 0 20px;
+ }
