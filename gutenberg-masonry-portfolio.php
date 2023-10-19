@@ -122,8 +122,15 @@ class Gutenberg_Masonry_Porfolio {
 		) );
 	}
 
+	function render_react_root( $attributes ) {
+		$root_element = "<div id='bws_gutenberg-masonry_portfolio'><pre style='display: none'>" . wp_json_encode( $attributes ) . "</pre></div>";
+		return $root_element;
+	}
+
 	function create_block_gutenberg_masonry_portfolio_block_init() {
-		register_block_type( __DIR__ . '/build' );
+		register_block_type( __DIR__ . '/build', array(
+			'render_callback'	=>	array( $this, 'render_react_root' )
+		) );
 	}
 }
 
