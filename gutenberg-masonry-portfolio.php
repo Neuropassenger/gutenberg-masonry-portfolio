@@ -24,16 +24,35 @@
 class Gutenberg_Masonry_Porfolio {
 	function __construct() {
 		add_action( 'init', array( $this, 'create_block_gutenberg_masonry_portfolio_block_init' ) );
-		add_action( 'init', array( $this, 'register_portfolio_taxonomy' ) );
+		add_action( 'init', array( $this, 'register_portfolio_categories_taxonomy' ) );
+		add_action( 'init', array( $this, 'register_portfolio_tags_taxonomy' ) );
 		add_action( 'init', array( $this, 'register_portfolio_post_type' ) );
 	}
 
-	/**
-	 * Register the Portfolio Taxonomy
-	 */
-	function register_portfolio_taxonomy() {
-		// Register a Taxonomy for the Portfolio Post Type
-		register_taxonomy( 'bws_portoflio_cat', 'portfolio', array(
+	function register_portfolio_categories_taxonomy() {
+		register_taxonomy( 'bws_portoflio_cat', 'bws_portfolio_post', array(
+			'show_in_rest'	=> true,
+			'labels'		=> array(
+				'name'							=> __( 'Portfolio Categories', 'gutenberg-masonry-portfolio' ),
+				'singular_name'					=> __( 'Portfolio Category', 'gutenberg-masonry-portfolio' ),
+				'search_items'					=> __( 'Search Portfolio Categories', 'gutenberg-masonry-portfolio' ),
+				'popular_items' 				=> __( 'Popular Portfolio Categories', 'gutenberg-masonry-portfolio' ),
+				'all_items'						=> __( 'All Portfolio Categories', 'gutenberg-masonry-portfolio' ),
+				'parent_item'					=> __( 'Parent Portfolio Category', 'gutenberg-masonry-portfolio' ),
+				'parent_item_colon'				=> __( 'Parent Portfolio Category:', 'gutenberg-masonry-portfolio' ),
+				'edit_item'						=> __( 'Edit Portfolio Category', 'gutenberg-masonry-portfolio' ),
+				'update_item'					=> __( 'Update Portfolio Category', 'gutenberg-masonry-portfolio' ),
+				'add_new_item'					=> __( 'Add New Portfolio Category', 'gutenberg-masonry-portfolio' ),
+				'view_item'						=> __( 'View Portfolio Category', 'gutenberg-masonry-portfolio' ),
+				'not_found'						=> __( 'Portfolio Categories not found', 'gutenberg-masonry-portfolio' ),
+				'back_to_items'					=> __( 'Go to Portfolio Categories', 'gutenberg-masonry-portfolio' ),
+			),
+			'hierarchical'	=> true
+		) );
+	}
+
+	function register_portfolio_tags_taxonomy() {
+		register_taxonomy( 'bws_portoflio_tag', 'bws_portfolio_post', array(
 			'show_in_rest'	=> true,
 			'labels'		=> array(
 				'name'							=> __( 'Portfolio Tags', 'gutenberg-masonry-portfolio' ),
@@ -54,12 +73,9 @@ class Gutenberg_Masonry_Porfolio {
 		) );
 	}
 
-	/**
-	 * Register the Portfolio Post Type
-	 */
 	function register_portfolio_post_type() {
 		register_post_type( 'bws_portfolio_post', array(
-			'taxonomies'		=> array( 'bws_portoflio_cat' ),
+			'taxonomies'		=> array( 'bws_portoflio_cat', 'bws_portfolio_tag' ),
 			'public' 			=> true,
 			'show_in_rest'		=> true,
 			'supports' 			=> array( 'title', 'editor', 'thumbnail' ),
