@@ -123,7 +123,19 @@ class Gutenberg_Masonry_Porfolio {
 	}
 
 	function render_react_root( $attributes ) {
-		$root_element = "<div id='bws_gutenberg-masonry_portfolio'><pre style='display: none'>" . wp_json_encode( $attributes ) . "</pre></div>";
+		/* if ( ! is_admin() ) {
+			// Automatically load dependencies and version
+			$asset_file = include( plugin_dir_path( __FILE__ ) . 'build/frontend.asset.php');
+			wp_enqueue_script(
+					'bws-gutenberg-masonry-portfolio-frontend',
+					plugin_dir_url(__FILE__) . 'build/frontend.js',
+					$asset_file['dependencies'],
+					$asset_file['version']
+			);
+			wp_enqueue_style( 'bws-gutenberg-masonry-portfolio-frontend', plugin_dir_url(__FILE__) . 'build/frontend.css' );
+		} */
+
+		$root_element = "<div id='bws_gutenberg-masonry-portfolio'><pre style='display: none'>" . wp_json_encode( $attributes ) . "</pre></div>";
 		return $root_element;
 	}
 
