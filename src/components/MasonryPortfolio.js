@@ -3,6 +3,7 @@ import apiFetch from '@wordpress/api-fetch';
 import Masonry from 'react-masonry-css';
 
 import MasonryPost from './MasonryPost';
+import MasonryFilter from './MasonryFilter';
 
 const  MasonryPortfolio = (props) => {
     const [posts, setPosts] = useState({list: [], isFetching: false});
@@ -40,6 +41,8 @@ const  MasonryPortfolio = (props) => {
     };
 
     return (
+        <>
+        <MasonryFilter />
         <Masonry
             breakpointCols={breakpointColumnsObj}
             className="bws_gutenberg-masonry-portfolio-grid"
@@ -49,6 +52,7 @@ const  MasonryPortfolio = (props) => {
                 <MasonryPost key={index} postData={post} />
             ))}
         </Masonry>
+        </>
     );
 }
 

@@ -64,3 +64,18 @@
 		background-color: rgba(66, 65, 65, 0.5); /* Конечная прозрачность 0.5 при активации оверлея */
 	}
 }
+
+ul.bws_gutenberg-masonry-portfolio-filter {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+
+	li {
+		padding: 0 7px;
+
+		&:hover {
+			color: var(--global-palette-highlight-alt);
+			cursor: pointer;
+		}
+	}
+} 
