@@ -1,13 +1,23 @@
-const MasonryNavigation = () => {
+const MasonryNavigation = (props) => {
+    console.log({props});
     return (
         <ul className="bws_gutenberg-masonry-portfolio-filter">
-            <li>All Cats</li>
-            <li>Cat1</li>
-            <li>Cat2</li>
-            <li>Cat3</li>
-            <li>Cat4</li>
-            <li>Cat5</li>
-            <li>Cat6</li>
+            <li 
+                className={props.selectedCategories.length == 0 ? "bws_selected-category-item" : ""} 
+                onClick={(event) => props.categoryOnClick(-1)}
+            >
+                All Cats
+            </li>
+            {props.categories.list.map((category) => {
+                return (
+                    <li 
+                        className={props.selectedCategories.includes(category.id) ? "bws_selected-category-item" : ""} 
+                        onClick={(event) => props.categoryOnClick(category.id)}
+                    >
+                        {category.name}
+                    </li>
+                );
+            })}
         </ul>
     );
 }

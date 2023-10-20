@@ -70,6 +70,12 @@ ul.bws_gutenberg-masonry-portfolio-filter {
 	justify-content: center;
 	list-style: none;
 
+	.bws_selected-category-item {
+		//font-weight: 700;
+		//text-decoration: underline;
+		color: var(--global-palette-highlight-alt);
+	}
+
 	li {
 		padding: 0 7px;
 
