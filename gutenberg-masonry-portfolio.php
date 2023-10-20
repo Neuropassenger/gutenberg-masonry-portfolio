@@ -33,7 +33,7 @@ class Gutenberg_Masonry_Porfolio {
 	}
 
 	function register_portfolio_categories_taxonomy() {
-		register_taxonomy( 'bws_portoflio_cat', 'bws_portfolio_post', array(
+		register_taxonomy( 'bws_portfolio_cat', 'bws_portfolio_post', array(
 			'show_in_rest'	=> true,
 			'labels'		=> array(
 				'name'							=> __( 'Portfolio Categories', 'gutenberg-masonry-portfolio' ),
@@ -55,7 +55,7 @@ class Gutenberg_Masonry_Porfolio {
 	}
 
 	function register_portfolio_tags_taxonomy() {
-		register_taxonomy( 'bws_portoflio_tag', 'bws_portfolio_post', array(
+		register_taxonomy( 'bws_portfolio_tag', 'bws_portfolio_post', array(
 			'show_in_rest'	=> true,
 			'labels'		=> array(
 				'name'							=> __( 'Portfolio Tags', 'gutenberg-masonry-portfolio' ),
@@ -78,7 +78,7 @@ class Gutenberg_Masonry_Porfolio {
 
 	function register_portfolio_post_type() {
 		register_post_type( 'bws_portfolio_post', array(
-			'taxonomies'		=> array( 'bws_portoflio_cat', 'bws_portfolio_tag' ),
+			'taxonomies'		=> array( 'bws_portfolio_cat', 'bws_portfolio_tag' ),
 			'public' 			=> true,
 			'show_in_rest'		=> true,
 			'supports' 			=> array( 'title', 'editor', 'thumbnail' ),
