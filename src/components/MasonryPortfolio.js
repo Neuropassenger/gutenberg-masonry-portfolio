@@ -70,7 +70,7 @@ const  MasonryPortfolio = (props) => {
             setSelectedCategories(updatedSelectedCategories);
         // Include category
         } else {
-            setSelectedCategories([...selectedCategories, categoryId]);
+            setSelectedCategories([categoryId]);
         }
     }
 
