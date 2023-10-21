@@ -52,7 +52,7 @@
 
 /* Style your items */
 .bws_gutenberg-masonry-portfolio-grid-column > div { /* change div to reference your elements you put in <Masonry> */
-	background: grey;
+	background: var(--global-palette7);
 	margin-bottom: 30px;
 }
 
