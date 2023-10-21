@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import apiFetch from '@wordpress/api-fetch';
 import Masonry from 'react-masonry-css';
+import {Spinner} from '@wordpress/components';
 
 import MasonryPost from './MasonryPost';
 import MasonryFilter from './MasonryFilter';
@@ -79,25 +80,29 @@ const  MasonryPortfolio = (props) => {
         700: 1      // При ширине экрана 700px будет 1 столбец
     };
 
-    return (
-        <>
-        <MasonryFilter 
-            categories={categories} 
-            categoryOnClick={categoryOnClick}
-            selectedCategories={selectedCategories}
-        />
-        {filteredPosts.length > 0 ? 
-        <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="bws_gutenberg-masonry-portfolio-grid"
-            columnClassName="bws_gutenberg-masonry-portfolio-grid-column"
-        >
-            {filteredPosts.map((post, index) => {
-                return <MasonryPost key={index} postData={post} />;
-            })}    
-        </Masonry> : <p className='bws_items-not-found-message'>No Portfolio Items found...</p>}
-        </>
-    );
+    if (posts.isFetching || posts.list.length == 0) {
+        return <div className='bws_spinner-wrapper'><Spinner /></div>;
+    } else {
+        return (
+            <>
+            <MasonryFilter 
+                categories={categories} 
+                categoryOnClick={categoryOnClick}
+                selectedCategories={selectedCategories}
+            />
+            {filteredPosts.length > 0 ? 
+            <Masonry
+                breakpointCols={breakpointColumnsObj}
+                className="bws_gutenberg-masonry-portfolio-grid"
+                columnClassName="bws_gutenberg-masonry-portfolio-grid-column"
+            >
+                {filteredPosts.map((post, index) => {
+                    return <MasonryPost key={index} postData={post} />;
+                })}    
+            </Masonry> : <p className='bws_items-not-found-message'>No Portfolio Items found...</p>}
+            </>
+        );
+    }
 }
 
 export default MasonryPortfolio;
