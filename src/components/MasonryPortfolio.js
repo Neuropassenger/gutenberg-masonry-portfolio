@@ -9,16 +9,18 @@ const  MasonryPortfolio = (props) => {
     const [posts, setPosts] = useState({list: [], isFetching: false});
     const [categories, setCategories] = useState({list: [], isFetching: false});
     const [selectedCategories, setSelectedCategories] = useState([]);
-    const [postsForDisplayCount, setPostsForDisplayCount] = useState(0);
+    const [filteredPosts, setFilteredPosts] = useState([]);
 
     async function fetchCategories() {
         try {
 			setCategories({...categories, isFetching: true});
 
 			const response = await apiFetch({
-				path: 'wp/v2/bws_portfolio_cat?_fields=id,name,slug'
+				path: 'wp/v2/bws_portfolio_cat?_fields=id,name,slug,count'
 			});
-			setCategories({list: response, isFetching: false});
+            // We only want categories that have at least one post in them
+            const filteredCategories = response.filter((category) => category.count > 0);
+			setCategories({list: filteredCategories, isFetching: false});
 		} catch (error) {
 			console.log(error);
 			setCategories({...categories, isFetching: false});
@@ -50,6 +52,13 @@ const  MasonryPortfolio = (props) => {
         await fetchPosts();
     }, []);
 
+    useEffect(() => {
+        const filteredPosts = posts?.list.filter((post, index) => {
+            return selectedCategories.length == 0 || selectedCategories.some((categoryId) => post.bws_portfolio_cat.includes(categoryId));
+        });
+        setFilteredPosts(filteredPosts);
+    }, [posts.list, selectedCategories]);
+
     function categoryOnClick(categoryId) {
         // All categories
         if (categoryId == -1) {
@@ -64,8 +73,6 @@ const  MasonryPortfolio = (props) => {
         }
     }
 
-    console.log({posts}, {categories});
-
     const breakpointColumnsObj = {
         default: 3, // Количество столбцов по умолчанию
         1100: 2,    // При ширине экрана 1100px будут 2 столбца
@@ -79,19 +86,16 @@ const  MasonryPortfolio = (props) => {
             categoryOnClick={categoryOnClick}
             selectedCategories={selectedCategories}
         />
+        {filteredPosts.length > 0 ? 
         <Masonry
             breakpointCols={breakpointColumnsObj}
             className="bws_gutenberg-masonry-portfolio-grid"
             columnClassName="bws_gutenberg-masonry-portfolio-grid-column"
         >
-            {posts.list.map((post, index) => {
-                if (selectedCategories.length == 0 || selectedCategories.every((categoryId) => {
-                    return post.bws_portfolio_cat.includes(categoryId)
-                })) {
-                    return <MasonryPost key={index} postData={post} />;
-                }
-            })}
-        </Masonry>
+            {filteredPosts.map((post, index) => {
+                return <MasonryPost key={index} postData={post} />;
+            })}    
+        </Masonry> : <p className='bws_items-not-found-message'>No Portfolio Items found...</p>}
         </>
     );
 }

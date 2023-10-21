@@ -1,5 +1,4 @@
 const MasonryNavigation = (props) => {
-    console.log({props});
     return (
         <ul className="bws_gutenberg-masonry-portfolio-filter">
             <li 

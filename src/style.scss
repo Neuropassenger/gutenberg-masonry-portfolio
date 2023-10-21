@@ -5,6 +5,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
+#bws_gutenberg-masonry-portfolio {
+	.bws_items-not-found-message {
+		text-align: center;
+	}
+}
+
  .bws_gutenberg-masonry-portfolio-grid {
 	display: -webkit-box; /* Not needed if autoprefixing */
 	display: -ms-flexbox; /* Not needed if autoprefixing */
