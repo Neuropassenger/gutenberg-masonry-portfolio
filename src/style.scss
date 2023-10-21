@@ -14,6 +14,28 @@
 		display: flex;
 		justify-content: center;
 	}
+
+	ul.bws_gutenberg-masonry-portfolio-filter {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+		padding-left: 0;
+	
+		.bws_selected-category-item {
+			//font-weight: 700;
+			//text-decoration: underline;
+			color: var(--global-palette-highlight-alt);
+		}
+	
+		li {
+			padding: 0 7px;
+	
+			&:hover {
+				color: var(--global-palette-highlight-alt);
+				cursor: pointer;
+			}
+		}
+	} 
 }
 
  .bws_gutenberg-masonry-portfolio-grid {
@@ -75,25 +97,3 @@
 		background-color: rgba(66, 65, 65, 0.5); /* Конечная прозрачность 0.5 при активации оверлея */
 	}
 }
-
-ul.bws_gutenberg-masonry-portfolio-filter {
-	display: flex;
-	justify-content: center;
-	list-style: none;
-	padding-left: 0;
-
-	.bws_selected-category-item {
-		//font-weight: 700;
-		//text-decoration: underline;
-		color: var(--global-palette-highlight-alt);
-	}
-
-	li {
-		padding: 0 7px;
-
-		&:hover {
-			color: var(--global-palette-highlight-alt);
-			cursor: pointer;
-		}
-	}
-} 
