@@ -28,72 +28,73 @@
 		}
 	
 		li {
-			padding: 0 7px;
+			padding: 0 20px;
 	
 			&:hover {
 				color: var(--global-palette-highlight-alt);
 				cursor: pointer;
 			}
 		}
-	} 
-}
-
- .bws_gutenberg-masonry-portfolio-grid {
-	display: -webkit-box; /* Not needed if autoprefixing */
-	display: -ms-flexbox; /* Not needed if autoprefixing */
-	display: flex;
-	margin-left: -30px; /* gutter size offset */
-	width: auto;
-}
-.bws_gutenberg-masonry-portfolio-grid-column {
-	padding-left: 30px; /* gutter size */
-	background-clip: padding-box;
-}
-
-/* Style your items */
-.bws_gutenberg-masonry-portfolio-grid-column > div { /* change div to reference your elements you put in <Masonry> */
-	background: var(--global-palette7);
-	margin-bottom: 30px;
-}
-
-.bws_gutenberg-masonry-portfolio-grid-column > div {
-	position: relative;
-
-	h2 {
+	}
+	
+	.bws_gutenberg-masonry-portfolio-grid {
+		display: -webkit-box; /* Not needed if autoprefixing */
+		display: -ms-flexbox; /* Not needed if autoprefixing */
+		display: flex;
+		margin-left: -30px; /* gutter size offset */
+		width: auto;
+	}
+	.bws_gutenberg-masonry-portfolio-grid-column {
+		padding-left: 30px; /* gutter size */
+		background-clip: padding-box;
+	}
+	
+	/* Style your items */
+	.bws_gutenberg-masonry-portfolio-grid-column > div { /* change div to reference your elements you put in <Masonry> */
+		background: var(--global-palette7);
+		margin-bottom: 30px;
+	}
+	
+	.bws_gutenberg-masonry-portfolio-grid-column > div {
+		position: relative;
+	
+		h2 {
+			position: absolute;
+			top: 50%; /* Переместите верхний край элемента на 50% высоты родительского контейнера */
+			left: 50%; /* Переместите левый край элемента на 50% ширины родительского контейнера */
+			transform: translate(-50%, -50%); /* Сдвиньте элемент обратно на половину своей собственной ширины и высоты */
+			color: #fff;
+			z-index: 2;
+			//display: none;
+			text-align: center;
+			visibility: hidden;
+			transition: visibility 0.1s;
+		}
+	}
+	  
+	.bws_gutenberg-masonry-portfolio-grid-column > div::before {
+		content: "";
+		display: block;
 		position: absolute;
-		top: 50%; /* Переместите верхний край элемента на 50% высоты родительского контейнера */
-		left: 50%; /* Переместите левый край элемента на 50% ширины родительского контейнера */
-		transform: translate(-50%, -50%); /* Сдвиньте элемент обратно на половину своей собственной ширины и высоты */
-		color: #fff;
-		z-index: 2;
-		//display: none;
-		text-align: center;
-		visibility: hidden;
-		transition: visibility 0.1s;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0); /* Начальная прозрачность 0 */
+		z-index: 1; /* Установите значение z-index, чтобы оверлей находился над контентом */
+		pointer-events: none; /* Сделать оверлей прозрачным для событий */
+		  transition: background-color 0.4s; /* Добавляем плавную анимацию изменения цвета фона */
 	}
-}
-  
-.bws_gutenberg-masonry-portfolio-grid-column > div::before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0); /* Начальная прозрачность 0 */
-	z-index: 1; /* Установите значение z-index, чтобы оверлей находился над контентом */
-	pointer-events: none; /* Сделать оверлей прозрачным для событий */
-  	transition: background-color 0.4s; /* Добавляем плавную анимацию изменения цвета фона */
+	
+	.bws_gutenberg-masonry-portfolio-grid-column > div:hover {
+		& h2 {
+			//display: inline-block;
+			visibility: visible;
+		}
+	
+		&::before {
+			background-color: rgba(66, 65, 65, 0.5); /* Конечная прозрачность 0.5 при активации оверлея */
+		}
+	}
 }
 
-.bws_gutenberg-masonry-portfolio-grid-column > div:hover {
-	& h2 {
-		//display: inline-block;
-		visibility: visible;
-	}
-
-	&::before {
-		background-color: rgba(66, 65, 65, 0.5); /* Конечная прозрачность 0.5 при активации оверлея */
-	}
-}

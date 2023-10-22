@@ -5,7 +5,7 @@ const MasonryNavigation = (props) => {
                 className={props.selectedCategories.length == 0 ? "bws_selected-category-item" : ""} 
                 onClick={(event) => props.categoryOnClick(-1)}
             >
-                All Cats
+                All Categories
             </li>
             {props.categories.list.map((category) => {
                 return (
