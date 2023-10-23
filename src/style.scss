@@ -5,7 +5,7 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-#bws_gutenberg-masonry-portfolio {
+div#bws_gutenberg-masonry-portfolio {
 	.bws_items-not-found-message {
 		text-align: center;
 	}
@@ -20,6 +20,7 @@
 		justify-content: center;
 		list-style: none;
 		padding-left: 0;
+		flex-wrap: wrap;
 	
 		.bws_selected-category-item {
 			//font-weight: 700;
@@ -28,7 +29,7 @@
 		}
 	
 		li {
-			padding: 0 20px;
+			padding: 0 20px 10px;
 	
 			&:hover {
 				color: var(--global-palette-highlight-alt);
