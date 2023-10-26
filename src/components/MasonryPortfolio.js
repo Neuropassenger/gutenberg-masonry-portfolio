@@ -30,22 +30,23 @@ const  MasonryPortfolio = (props) => {
 
     async function fetchPosts() {
         try {
-			setPosts({list: posts.list, isFetching: true});
-			/* const apiPath = 'wp/v2/reference?_fields=id,title,content,categories,exclusive,link,thumbnail_url&search='
-				+ searchQuery.text + '&reference_category=' + categoriesForFetch
-				+ '&filter[orderby]=rand' + exclusiveMetaForFetch; */
-            //const apiPath = 'wp/v2/bws_portfolio_post?filter[orderby]=rand&_embed';
-            const apiPath = 'wp/v2/bws_portfolio_post?_embed';
-
-			const response = await apiFetch({
-				path: apiPath
-			});
-
-			setPosts({list: response, isFetching: false});
-		} catch (error) {
-			console.log(error);
-			setPosts({list: posts.list, isFetching: false});
-		}
+            setPosts({list: posts.list, isFetching: true});
+            let page = 1;
+            let allPosts = [];
+            while (true) {
+                const apiPath = `wp/v2/bws_portfolio_post?_embed&per_page=100&page=${page}`;
+                const response = await apiFetch({path: apiPath});
+                allPosts = allPosts.concat(response);
+                if (allPosts.length < page * 100) {
+                    break;
+                }
+                page += 1;
+            }
+            setPosts({list: allPosts, isFetching: false});
+        } catch (error) {
+            console.log(error);
+            setPosts({list: posts.list, isFetching: false});
+        }
     }
 
     useEffect(async() => {
