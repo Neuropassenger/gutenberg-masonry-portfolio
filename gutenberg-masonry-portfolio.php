@@ -30,6 +30,9 @@ class Gutenberg_Masonry_Porfolio {
 		add_action( 'init', array( $this, 'register_portfolio_categories_taxonomy' ) );
 		add_action( 'init', array( $this, 'register_portfolio_tags_taxonomy' ) );
 		add_action( 'init', array( $this, 'register_portfolio_post_type' ) );
+
+		// Rest API
+		add_filter( 'rest_prepare_bws_portfolio_post', array( $this, 'prepare_data_to_rest_bws_portfolio_post' ), 10, 3 );
 	}
 
 	function register_portfolio_categories_taxonomy() {
@@ -146,6 +149,13 @@ class Gutenberg_Masonry_Porfolio {
 		register_block_type( __DIR__ . '/build', array(
 			'render_callback'	=>	array( $this, 'render_react_root' )
 		) );
+	}
+
+	function prepare_data_to_rest_bws_portfolio_post( $response, $post, $request ) {
+		$thumbnail_permalink = get_the_post_thumbnail_url( $post, array( 768, 0 ) );
+		$response->data['thumbnail_url'] = $thumbnail_permalink;
+
+		return $response;
 	}
 }
 

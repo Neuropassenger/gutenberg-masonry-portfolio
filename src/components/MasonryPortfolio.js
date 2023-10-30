@@ -34,7 +34,7 @@ const  MasonryPortfolio = (props) => {
             let page = 1;
             let allPosts = [];
             while (true) {
-                const apiPath = `wp/v2/bws_portfolio_post?_embed&per_page=100&page=${page}`;
+                const apiPath = `wp/v2/bws_portfolio_post?per_page=100&page=${page}`;
                 const response = await apiFetch({path: apiPath});
                 allPosts = allPosts.concat(response);
                 if (allPosts.length < page * 100) {

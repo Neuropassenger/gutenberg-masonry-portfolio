@@ -7,7 +7,7 @@ const MasonryPost = (props) => {
                 <h2>{he.decode(props.postData.title.rendered)}</h2>
                 <img 
                     loading="lazy" 
-                    src={props.postData._embedded["wp:featuredmedia"][0].source_url} 
+                    src={props.postData.thumbnail_url} 
                     alt={he.decode(props.postData.title.rendered)} 
                 />
             </a>
